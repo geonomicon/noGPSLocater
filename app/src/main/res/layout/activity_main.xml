@@ -9,7 +9,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show Map"
+        android:text="Location"
         android:id="@+id/smap"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -20,7 +20,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show Compass"
+        android:text="Compass(Low Power)"
         android:id="@+id/scompass"
         android:layout_below="@+id/smap"
         android:layout_alignRight="@+id/smap"
@@ -31,11 +31,44 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Compass More Accurate"
+        android:text="Compass"
         android:id="@+id/acompass"
         android:layout_below="@+id/scompass"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/scompass"
         android:layout_alignEnd="@+id/scompass" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cell ID Details"
+        android:id="@+id/citb"
+        android:layout_below="@+id/acompass"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/acompass"
+        android:layout_alignEnd="@+id/acompass" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check DB"
+        android:id="@+id/dbb"
+        android:layout_below="@+id/citb"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/citb"
+        android:layout_alignEnd="@+id/citb" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Tracking"
+        android:id="@+id/trackb"
+        android:layout_below="@+id/dbb"
+        android:layout_alignRight="@+id/dbb"
+        android:layout_alignEnd="@+id/dbb"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -1,59 +1,31 @@
 package project.rajatsharma.nogpslocater;
 
 import android.app.Activity;
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Paint.Style;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MagnetoActivity extends Activity implements SensorEventListener {
 
-    Float azimut;  // View to draw a compass
-
-    public class CustomDrawableView extends View {
-        Paint paint = new Paint();
-        public CustomDrawableView(Context context) {
-            super(context);
-            paint.setColor(0xff00ff00);
-            paint.setStyle(Style.STROKE);
-            paint.setStrokeWidth(2);
-            paint.setAntiAlias(true);
-        };
-
-        protected void onDraw(Canvas canvas) {
-            int width = getWidth();
-            int height = getHeight();
-            int centerx = width/2;
-            int centery = height/2;
-            canvas.drawLine(centerx, 0, centerx, height, paint);
-            canvas.drawLine(0, centery, width, centery, paint);
-            // Rotate the canvas with the azimut
-            if (azimut != null)
-                canvas.rotate(-azimut*360/(2*3.14159f), centerx, centery);
-            paint.setColor(0xff0000ff);
-            canvas.drawLine(centerx, -1000, centerx, +1000, paint);
-            canvas.drawLine(-1000, centery, 1000, centery, paint);
-            canvas.drawText("N", centerx+5, centery-10, paint);
-            canvas.drawText("S", centerx-10, centery+15, paint);
-            paint.setColor(0xff00ff00);
-        }
-    }
-
-    CustomDrawableView mCustomDrawableView;
+    Float azimuth;
+    private ImageView image;
+    TextView tvHeading;
+    private float currentDegree = 0f;
     private SensorManager mSensorManager;
     Sensor accelerometer;
     Sensor magnetometer;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCustomDrawableView = new CustomDrawableView(this);
-        setContentView(mCustomDrawableView);    // Register the sensor listeners
+        setContentView(R.layout.activity_compass);
+        image = (ImageView) findViewById(R.id.imageViewCompass);
+        tvHeading = (TextView) findViewById(R.id.tvHeading);
         mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
         accelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         magnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
@@ -65,6 +37,19 @@ public class MagnetoActivity extends Activity implements SensorEventListener {
         mSensorManager.registerListener(this, magnetometer, SensorManager.SENSOR_DELAY_UI);
     }
 
+    public void rotate(float degree){
+        RotateAnimation ra = new RotateAnimation(
+                currentDegree,
+                -degree,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f);
+        ra.setDuration(210);
+        ra.setFillAfter(true);
+
+        image.startAnimation(ra);
+        currentDegree = -degree;
+    }
     protected void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(this);
@@ -86,9 +71,11 @@ public class MagnetoActivity extends Activity implements SensorEventListener {
             if (success) {
                 float orientation[] = new float[3];
                 SensorManager.getOrientation(R, orientation);
-                azimut = orientation[0]; // orientation contains: azimut, pitch and roll
+                azimuth = orientation[0];
+                float degree = azimuth *360/(2*3.14159f);
+                tvHeading.setText("Heading: " + Float.toString(degree) + " degrees");
+                rotate(degree);
             }
         }
-        mCustomDrawableView.invalidate();
     }
 }

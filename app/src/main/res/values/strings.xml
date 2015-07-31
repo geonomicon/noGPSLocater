@@ -6,4 +6,9 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_compass">CompassActivity</string>
     <string name="title_activity_magneto">MagnetoActivity</string>
+    <string name="title_activity_cellid_map">Map</string>
+    <string name="title_activity_db">DbActivity</string>
+    <string name="title_activity_cell_id">CellIdActivity</string>
+    <string name="title_activity_gpsdb">GPSdb</string>
+    <string name="title_activity_tracking">TrackingActivity</string>
 </resources>

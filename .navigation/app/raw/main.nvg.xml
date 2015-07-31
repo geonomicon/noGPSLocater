@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigationModel
+  ns = "http://schemas.android.com?import=com.android.tools.idea.editors.navigation.model.*">
+  <locations  
+    class = "java.util.ArrayList">
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "project.rajatsharma.nogpslocater.MagnetoActivity"/>
+      <point      
+        x = "2504"      
+        y = "-384"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "project.rajatsharma.nogpslocater.CompassActivity"/>
+      <point      
+        x = "1548"      
+        y = "532"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "project.rajatsharma.nogpslocater.MainActivity"/>
+      <point      
+        x = "184"      
+        y = "-44"/>
+    </statePointEntry>
+  </locations>
+</navigationModel>
