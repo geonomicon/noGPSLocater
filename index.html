@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="noGPSLocater : Location Detection and Direction Compass which can be used when no GPS connection is available in Android">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>noGPSLocater</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/rajatsharma305/noGPSLocater">View on GitHub</a>
+
+          <h1 id="project_title">noGPSLocater</h1>
+          <h2 id="project_tagline">Location Detection and Direction Compass which can be used when no GPS connection is available in Android</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/rajatsharma305/noGPSLocater/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/rajatsharma305/noGPSLocater/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a id="no-gps-compass" class="anchor" href="#no-gps-compass" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NO GPS Compass.</h3>
+
+<p>Android Location Detection(Lat,Lng) and Direction Compass which can be used when no GPS connection is available.
+The Application uses Mobile Country Codes and Mobile Network Codes to pin point the location of the user. Location obtained is usually of lower precision than GPS but higher precision than GPS is closed rooms where GPS signal is not enough to pinpoint user's location.  </p>
+
+<h3>
+<a id="api-used" class="anchor" href="#api-used" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API Used</h3>
+
+<h4>
+<a id="location" class="anchor" href="#location" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Location</h4>
+
+<p>Combain WiFi Based Positioning API is used to get the location in Lat, Lng from MNC, MCC and CID(Cell Id) of mobile network which we can get by using GsmCellLocation and TelephonyManager classes of Android.</p>
+
+<h4>
+<a id="direction" class="anchor" href="#direction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Direction</h4>
+
+<p>For Direction identification, two types of compass are there, High Precision High Power consumption Magnetometer Compass and Low Precision Low Power Consumption Accelerometer Compass.</p>
+
+<h4>
+<a id="basemaps" class="anchor" href="#basemaps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BaseMaps</h4>
+
+<p>Google Maps is used for Basemaps for plotting Location obtained from the Combain API</p>
+
+<h4>
+<a id="database" class="anchor" href="#database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Database</h4>
+
+<p>SQLite Database for local storing of last location for tracking purposes. All location point stored are retrieved from the API and not from the GPS. Location is stored as Lat, Lng along with MNC, MCC, CellId and Magnetometer reading.</p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p><a href="mailto:lunasunkaiser@gmail.com">lunasunkaiser@gmail.com</a> // rajatsharma.rocks</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">noGPSLocater maintained by <a href="https://github.com/rajatsharma305">rajatsharma305</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
